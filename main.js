@@ -2,6 +2,7 @@
   const $ = document.querySelector.bind(document);
   const wheel = $('.wheel');
   const btnStart = $('.btn-start');
+  const bgBtnStart = $('.bg-button-spin');
   const msg = $('.msg');
 
   let timer = 7000;
@@ -10,45 +11,54 @@
 
   const listGift =[
     {
-      name: 'IPHONE 1',
-      percent: 10/100
+      name: 'Tiles Hop',
+      image: './images/products/hop.png',
+      percent: 10/100,
+      class: 'tiles-hop'
     },
     {
-      name: 'IPHONE 2',
-      percent: 20/100
+      name: 'Magic Tiles 3',
+      image: './images/products/magic3.png',
+      percent: 20/100,
+      class: 'magic-tiles-3 '
     },
     {
-      name: 'IPHONE 3',
-      percent: 15/100
+      name: 'Dancing Road',
+      image: './images/products/dacing.png',
+      percent: 15/100,
+      class: 'dancing-road'
     },
     {
-      name: 'IPHONE 4',
-      percent: 15/100
+      name: 'Color Hop 3D',
+      image: './images/products/color3D.png',
+      percent: 15/100,
+      class: 'color-hop-3d'
     },
     {
-      name: 'IPHONE 5',
-      percent: 20/100
+      name: 'Dancing Race',
+      image: './images/products/dancing_race.png',
+      percent: 20/100,
+      class: 'dancing-race'
     },
     {
-      name: 'IPHONE 6',
-      percent: 10/100
+      name: 'Beat Blader 3D',
+      image: './images/products/beat.png',
+      percent: 10/100,
+      class: 'beat-blader-3d'
     },
     {
-      name: 'IPHONE 7',
-      percent: 20/100
+      name: 'Dancing Sky 3',
+      image: './images/products/sky3.png',
+      percent: 20/100,
+      class: 'dancing-sky3'
     },
     {
-      name: 'IPHONE 8',
-      percent: 10/100
+      name: 'Beat Tiles',
+      image: './images/products/tiles.png',
+      percent: 10/100,
+      class: 'beat-tiles'
     },
-    {
-      name: 'IPHONE 9',
-      percent: 20/100
-    },
-    {
-      name: 'IPHONE 10',
-      percent: 5/100
-    },
+  
   ];
 
   const size = listGift.length;
@@ -61,11 +71,12 @@
       itemEl.style.transform = `rotate(${rotate * index}deg) skewY(-${skewY}deg)`;
       itemEl.innerHTML = `
         <p 
-          class="text-item ${index % 2 === 0 && 'even' }" 
+          class="text-item ${item.class}" 
           style="
             transform: skewY(${skewY}deg) rotate(${rotate / 2}deg);
           "
         >
+          <img src="${item.image}" alt="" class="image-product">
           <b>${item.name}</b>
         </p>
       `;
@@ -91,8 +102,7 @@
   const showGift = (nameGift) => {
     setTimeout(() => {
       isRotating = false;
-      btnStart.innerHTML = "Spin now";
-      btnStart.style.opacity = 0.8;
+      bgBtnStart.style.opacity = 0.8;
       msg.innerHTML = `Congratulations! You won <b>${nameGift}</b>`;
       // console.log(nameGift)
     }, timer)
@@ -101,9 +111,7 @@
   const start = () => {
     isRotating = true;
     msg.innerHTML = '';
-    btnStart.innerHTML = "Spinning...";
-    btnStart.style.opacity = 0.2;
-
+    bgBtnStart.style.opacity = 0.2;
     const randomNumber = Math.random();
     const gift = getGift(randomNumber);
      

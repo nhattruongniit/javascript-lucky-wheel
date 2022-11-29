@@ -2,28 +2,34 @@
 <html>
   <head>
     <title>Vanila Javascript Lucky Wheel</title>
-    
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://www.dafontfree.net/embed/YWlsZXJvbi1ibGFjay1yZWd1bGFyJmRhdGEvMTkxL2EvMTcyNTY1L2FpbGVyb24uYmxhY2sub3Rm" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="./theme.css" />
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <main>
-      <div class="main-wheel">
-        <div class="icon-arrow">
-          <!-- <img src="./images/arrow.png" alt="" /> -->
-          <i class="material-icons" style="font-size:72px;">arrow_downward</i>
+      <div class="bg-main">
+        <main>
+          <div class="main-wheel">
+            <div class="icon-arrow">
+              <img src="./images/point.png" alt="" />
+            </div>
+            <ul class="wheel"></ul>
+          </div>
+          <br />
+          <div class="bg-button-spin">
+            <button class="btn-start"></button>
+          </div>
+    
+          <br />
+          <h1 class="msg"></h1>
+          
+        </main>
+        <div class="logo">
+          <img src="./images/notag-white.png" alt="">
         </div>
-        <ul class="wheel"></ul>
       </div>
-      <br />
-      <div>
-        <button class="btn-start">Spin now</button>
-      </div>
-
-      <br />
-      <h1 class="msg"></h1>
-    </main>
     <script type="text/javascript" src="./main.js"></script>
   </body>
 </html>
