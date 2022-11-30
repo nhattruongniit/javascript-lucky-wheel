@@ -4,8 +4,6 @@
   const btnStart = $('.btn-start');
   const bgBtnStart = $('.bg-button-spin');
   const msg = $('.msg');
-  const btnPlay = $('.btn-play');
-  const nameReward = $('.name-reward');
 
   let timer = 7000;
   let isRotating = false;
@@ -105,17 +103,14 @@
     setTimeout(() => {
       isRotating = false;
       bgBtnStart.style.opacity = 0.8;
-      msg.style.opacity = 1;
-      msg.style.zIndex = 999;
-      nameReward.innerHTML = nameGift;
+      msg.innerHTML = `Congratulations! You won <b>${nameGift}</b>`;
+      // console.log(nameGift)
     }, timer)
   }
 
-
   const start = () => {
     isRotating = true;
-    // msg.style.opacity = 0;
-    // msg.style.zIndex = -1;
+    msg.innerHTML = '';
     bgBtnStart.style.opacity = 0.2;
     const randomNumber = Math.random();
     const gift = getGift(randomNumber);
@@ -130,12 +125,6 @@
   btnStart.addEventListener('click', () => {
     !isRotating && start();
   });
-
-  btnPlay.addEventListener('click', () => {
-    msg.style.opacity = 0;
-    msg.style.zIndex = -1;
-    // nameReward.innerHTML = '';
-  })
 
   renderItem();
 })();
