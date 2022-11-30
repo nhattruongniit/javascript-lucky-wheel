@@ -9,6 +9,11 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
+    <audio controls class="audioArrow"  style="opacity: 0; position: fixed">
+      <source src="./audio/sound-button.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+
       <div class="bg-main">
         <main>
           <div class="main-wheel">
@@ -34,9 +39,10 @@
           <div class="msg_content">
             <img class="congratulation" src="./images/congratulation.png" alt="" />
             <div style="text-align: center">
-              <span style="font-size: 32px">You won </span><br /><br />
-
-              <b style="font-size: 46px" class="name-reward"></b>
+              <!-- <span style="font-size: 32px">You won </span><br /><br /> -->
+              <b style="font-size: 46px" class="name-reward">
+                <img class="img-reward" src="./images/reward/shirt.png" alt="" />
+              </b>
               
             </div>
             <img class="btn-play" src="./images/play.png" alt="" style="transform: scale(0.4); cursor: pointer;" />

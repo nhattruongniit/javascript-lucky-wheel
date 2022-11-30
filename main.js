@@ -5,7 +5,8 @@
   const bgBtnStart = $('.bg-button-spin');
   const msg = $('.msg');
   const btnPlay = $('.btn-play');
-  const nameReward = $('.name-reward');
+  const imgReward = $('.img-reward');
+  const audioArrow = $('.audioArrow');
 
   let timer = 7000;
   let isRotating = false;
@@ -13,54 +14,33 @@
 
   const listGift =[
     {
-      name: 'Tiles Hop',
-      image: './images/products/hop.png',
-      percent: 10/100,
+      name: 'T-Shirt',
+      image: './images/reward/shirt.png',
+      nameImage: 'shirt',
+      percent: 49/100,
       class: 'tiles-hop'
     },
     {
-      name: 'Magic Tiles 3',
-      image: './images/products/magic3.png',
-      percent: 20/100,
+      name: 'Notebook',
+      image: './images/reward/notebook.png',
+      nameImage: 'notebook',
+      percent: 24/100,
       class: 'magic-tiles-3 '
     },
     {
-      name: 'Dancing Road',
-      image: './images/products/dacing.png',
+      name: 'Cap',
+      image: './images/reward/cap.png',
+      nameImage: 'cap',
       percent: 15/100,
       class: 'dancing-road'
     },
     {
-      name: 'Color Hop 3D',
-      image: './images/products/color3D.png',
-      percent: 15/100,
+      name: 'Backpack',
+      image: './images/reward/backpack.png',
+      nameImage: 'backpack',
+      percent: 12/100,
       class: 'color-hop-3d'
     },
-    {
-      name: 'Dancing Race',
-      image: './images/products/dancing_race.png',
-      percent: 20/100,
-      class: 'dancing-race'
-    },
-    {
-      name: 'Beat Blader 3D',
-      image: './images/products/beat.png',
-      percent: 10/100,
-      class: 'beat-blader-3d'
-    },
-    {
-      name: 'Dancing Sky 3',
-      image: './images/products/sky3.png',
-      percent: 20/100,
-      class: 'dancing-sky3'
-    },
-    {
-      name: 'Beat Tiles',
-      image: './images/products/tiles.png',
-      percent: 10/100,
-      class: 'beat-tiles'
-    },
-  
   ];
 
   const size = listGift.length;
@@ -97,7 +77,6 @@
       currentPerecent += item.percent;
       randomNumber <= currentPerecent && list.push({...item, index});
     })
-
     return list[0];
   }
 
@@ -107,34 +86,39 @@
       bgBtnStart.style.opacity = 0.8;
       msg.style.opacity = 1;
       msg.style.zIndex = 999;
-      nameReward.innerHTML = nameGift;
+      // pause audio
+      audioArrow.pause();
+
+      btnStart.removeEventListener('click', init);
+      imgReward.src = './images/reward/' + nameGift + '.png';
     }, timer)
   }
 
-
   const start = () => {
+    // play audio
+    audioArrow.play();
+
     isRotating = true;
-    // msg.style.opacity = 0;
-    // msg.style.zIndex = -1;
     bgBtnStart.style.opacity = 0.2;
     const randomNumber = Math.random();
+
     const gift = getGift(randomNumber);
-     
-    // console.log('gift: ', gift);
     currentRotate += 360 * 10;
 
     rotateWheel(currentRotate, gift.index);
-    showGift(gift.name)
+    showGift(gift.nameImage)
   }
 
-  btnStart.addEventListener('click', () => {
+  function init() {
     !isRotating && start();
-  });
+  }
+
+  btnStart.addEventListener('click', init);
 
   btnPlay.addEventListener('click', () => {
     msg.style.opacity = 0;
     msg.style.zIndex = -1;
-    // nameReward.innerHTML = '';
+    btnStart.addEventListener('click', init);
   })
 
   renderItem();
