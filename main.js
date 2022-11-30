@@ -118,6 +118,7 @@
   btnPlay.addEventListener('click', () => {
     msg.style.opacity = 0;
     msg.style.zIndex = -1;
+    imgReward.src = '';
     btnStart.addEventListener('click', init);
   })
 
