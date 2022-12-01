@@ -7,6 +7,7 @@
   const btnPlay = $('.btn-play');
   const imgReward = $('.img-reward');
   const audioArrow = $('.audioArrow');
+  const msgContent = $('.msg_content');
 
   let timer = 7000;
   let isRotating = false;
@@ -22,8 +23,8 @@
     },
     {
       name: 'Sock',
-      image: './images/reward/sock.png',
-      nameImage: 'sock',
+      image: './images/reward/socks.png',
+      nameImage: 'socks',
       percent: 24/100,
       class: 'magic-tiles-3 '
     },
@@ -90,6 +91,7 @@
       audioArrow.pause();
 
       btnStart.removeEventListener('click', init);
+      msgContent.style.display = 'block';
       imgReward.src = './images/reward/' + nameGift + '.png';
     }, timer)
   }
@@ -119,6 +121,7 @@
     msg.style.opacity = 0;
     msg.style.zIndex = -1;
     imgReward.src = '';
+    msgContent.style.display = 'none';
     btnStart.addEventListener('click', init);
   })
 
