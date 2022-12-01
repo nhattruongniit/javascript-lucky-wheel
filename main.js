@@ -32,14 +32,14 @@
       name: 'Cap',
       image: './images/reward/cap.png',
       nameImage: 'cap',
-      percent: 15/100,
+      percent: 17/100,
       class: 'dancing-road'
     },
     {
       name: 'Backpack',
       image: './images/reward/backpack.png',
       nameImage: 'backpack',
-      percent: 12/100,
+      percent: 10/100,
       class: 'color-hop-3d'
     },
   ];
