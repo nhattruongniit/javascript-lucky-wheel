@@ -21,9 +21,9 @@
       class: 'tiles-hop'
     },
     {
-      name: 'Notebook',
-      image: './images/reward/notebook.png',
-      nameImage: 'notebook',
+      name: 'Sock',
+      image: './images/reward/sock.png',
+      nameImage: 'sock',
       percent: 24/100,
       class: 'magic-tiles-3 '
     },
